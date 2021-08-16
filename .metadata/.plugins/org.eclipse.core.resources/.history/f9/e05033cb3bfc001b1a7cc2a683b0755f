@@ -1,0 +1,37 @@
+package ctr;
+
+import java.util.ArrayList;
+
+import vo.Name;
+import dao.NameDAO;
+
+public class NameProcess {
+	
+	//atributos
+	public static ArrayList<Name> names = new ArrayList<>();
+	public static NameDAO cd = new NameDAO ();
+	
+	//metodo para gerar dados de teste
+	public static void testes() {
+		names = new ArrayList<>();		
+		names.add(new Name("11111111111","Jacinto Alves","19 7070706060"));
+		names.add(new Name("22222222222","Jacinto Pena","19 7070706060"));
+		names.add(new Name("33333333333","Jacinto Belli","19 7070706060"));
+		names.add(new Name("44444444444","Jacinto Agua","19 7070706064"));
+		names.add(new Name("55555555555","Jacinto Tchau","19 7070706065"));
+	}
+	
+	//metodo que abre o arquivo de texto
+	public static void abrir() {
+		names = cd.abrir();
+	}
+	public static String salvar() {
+		if(cd.salvar(names)) {
+			return "<p> Salvo com sucesso</p>";
+		}else {
+			return "<p> Erro ao salvar</p>";
+		}
+	}
+}
+
+
